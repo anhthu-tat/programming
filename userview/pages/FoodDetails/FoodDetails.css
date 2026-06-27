@@ -1,0 +1,213 @@
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600,700&family=Inter:wght@400;500;600;700&display=swap');
+
+:root {
+  --bg: #faf7f2;
+  --surface: #ffffff;
+  --forest: #1b3a2f;
+  --forest-soft: #2c5446;
+  --coral: #ff6b47;
+  --coral-dark: #e85a38;
+  --gold: #f4b942;
+  --charcoal: #2a2a2a;
+  --line: #e7e1d6;
+  --radius: 14px;
+  --shadow: 0 4px 16px rgba(27, 58, 47, 0.08);
+}
+
+.food-details-page {
+  font-family: "Inter", sans-serif;
+  background: var(--bg);
+  color: var(--charcoal);
+  min-height: 100vh;
+}
+
+.food-details-page * {
+  box-sizing: border-box;
+}
+
+.food-details-loading,
+.food-details-empty {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 80px 32px;
+  text-align: center;
+  color: #807c72;
+}
+
+.food-details-toolbar {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 24px 32px 0;
+}
+
+.back-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 8px 14px;
+  font-size: 13.5px;
+  font-weight: 600;
+  color: var(--forest);
+  cursor: pointer;
+  transition: border-color 0.2s ease;
+}
+
+.back-btn:hover {
+  border-color: var(--coral);
+  color: var(--coral-dark);
+}
+
+.food-details-content {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 24px 32px 80px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: start;
+}
+
+.food-details-img-wrap {
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  aspect-ratio: 4 / 3;
+}
+
+.food-details-img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.food-details-info {
+  display: flex;
+  flex-direction: column;
+  padding-top: 8px;
+}
+
+.market-tag {
+  align-self: flex-start;
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--forest-soft);
+  background: rgba(27, 58, 47, 0.07);
+  padding: 5px 11px;
+  border-radius: 6px;
+  margin-bottom: 14px;
+}
+
+.food-details-name {
+  font-family: "Fraunces", serif;
+  font-size: 32px;
+  font-weight: 600;
+  color: var(--forest);
+  margin: 0 0 10px;
+}
+
+.food-details-rating {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  margin-bottom: 18px;
+}
+
+.rating-count {
+  font-size: 13px;
+  color: #9a958a;
+  margin-left: 6px;
+}
+
+.food-details-description {
+  font-size: 15px;
+  line-height: 1.6;
+  color: #5e5b53;
+  margin: 0 0 24px;
+}
+
+.food-details-price-row {
+  margin-bottom: 24px;
+}
+
+.food-details-price {
+  font-family: "Fraunces", serif;
+  font-size: 28px;
+  font-weight: 600;
+  color: var(--forest);
+}
+
+.add-to-cart-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  align-self: flex-start;
+  background: var(--coral);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  padding: 13px 26px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(255, 107, 71, 0.35);
+  transition: background 0.2s ease, transform 0.15s ease;
+}
+
+.add-to-cart-btn:hover {
+  background: var(--coral-dark);
+  transform: translateY(-1px);
+}
+
+.food-details-stepper {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  align-self: flex-start;
+  background: var(--forest);
+  border-radius: 10px;
+  padding: 10px 16px;
+}
+
+.food-details-stepper button {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(255, 255, 255, 0.15);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.food-details-stepper button:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.food-details-stepper span {
+  color: white;
+  font-weight: 700;
+  font-size: 16px;
+  min-width: 18px;
+  text-align: center;
+}
+
+@media (max-width: 800px) {
+  .food-details-content {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+}
+
+.food-details-recommendations {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 0 32px 60px;
+}

@@ -1,0 +1,234 @@
+/* ── Design tokens (mirror Header.css) ── */
+:root {
+  --bg: #faf7f2;
+  --surface: #ffffff;
+  --forest: #1b3a2f;
+  --coral: #ff6b47;
+  --coral-dark: #e85a38;
+  --charcoal: #2a2a2a;
+  --line: #e7e1d6;
+  --radius: 14px;
+  --shadow: 0 4px 16px rgba(27, 58, 47, 0.08);
+}
+
+/* ── Wrapper ── */
+.explore-menu {
+  font-family: "Inter", sans-serif;
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 24px 0 8px;
+}
+
+/* ── Section heading row ── */
+.explore-menu-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 14px;
+}
+
+.explore-menu-title {
+  font-family: "Fraunces", serif;
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--forest);
+  margin: 0;
+}
+
+/* ── Scroll arrow buttons ── */
+.scroll-arrows {
+  display: flex;
+  gap: 6px;
+}
+
+.scroll-btn {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  font-size: 22px;
+  color: #747474;
+  line-height: 1;
+  transition: color 0.2s;
+}
+
+.scroll-btn:hover {
+  color: var(--coral);
+}
+
+/* ── Pill strip ── */
+.explore-menu-list {
+  display: flex;
+  gap: 10px;
+  overflow-x: auto;
+  scrollbar-width: none;
+  padding-bottom: 4px;
+}
+
+.explore-menu-list::-webkit-scrollbar {
+  display: none;
+}
+
+.category-pill {
+  flex-shrink: 0;
+  background: var(--surface);
+  border: 1.5px solid var(--line);
+  border-radius: 999px;
+  padding: 7px 18px;
+  font-size: 13.5px;
+  font-weight: 500;
+  color: var(--charcoal);
+  cursor: pointer;
+  transition: background 0.2s, border-color 0.2s, color 0.2s;
+  white-space: nowrap;
+}
+
+.category-pill:hover {
+  border-color: var(--coral);
+  color: var(--coral-dark);
+}
+
+.category-pill.active {
+  background: var(--coral);
+  border-color: var(--coral);
+  color: #fff;
+  font-weight: 600;
+}
+
+/* ── Divider ── */
+.explore-divider {
+  margin: 18px 0;
+  border: none;
+  border-top: 2px solid var(--line);
+}
+
+/* ── Deal for Today section ── */
+.deals-section {
+  margin-top: 4px;
+}
+
+.deals-section .explore-menu-title {
+  margin-bottom: 16px;
+}
+
+/* 4-column grid, collapses gracefully */
+.deals-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+
+/* ── Individual deal card ── */
+.deal-card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  display: flex;
+  flex-direction: column;
+}
+
+.deal-market-badge {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--forest);
+  background: #edf4f0;
+  padding: 5px 12px;
+  border-bottom: 1px solid var(--line);
+}
+
+.deal-image-wrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  background: var(--bg);
+}
+
+.deal-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Plus button — bottom-right of image */
+.deal-plus-btn {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  background: var(--coral);
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 34px;
+  height: 34px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(255, 107, 71, 0.35);
+  transition: background 0.2s, transform 0.15s;
+}
+
+.deal-plus-btn:hover {
+  background: var(--coral-dark);
+  transform: scale(1.1);
+}
+
+/* ── Name + price row ── */
+.deal-info {
+  padding: 10px 12px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.deal-name {
+  font-size: 13.5px;
+  font-weight: 600;
+  color: var(--charcoal);
+}
+
+.deal-pricing {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.deal-discount {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--coral-dark);
+}
+
+.deal-price {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--forest);
+}
+
+/* ── Responsive ── */
+@media (max-width: 900px) {
+  .explore-menu {
+    padding: 20px 16px 8px;
+  }
+
+  .deals-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .deals-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+
+  .explore-menu-title {
+    font-size: 18px;
+  }
+}
