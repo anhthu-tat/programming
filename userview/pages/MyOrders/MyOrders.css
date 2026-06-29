@@ -1,0 +1,313 @@
+:root {
+  --bg: #faf7f2;
+  --surface: #ffffff;
+  --forest: #1b3a2f;
+  --coral: #ff6b47;
+  --coral-dark: #e85a38;
+  --charcoal: #2a2a2a;
+  --muted: #747474;
+  --line: #e7e1d6;
+  --radius: 14px;
+  --shadow: 0 4px 16px rgba(27, 58, 47, 0.08);
+}
+
+.my-orders-page {
+  font-family: "Inter", sans-serif;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/* ── Header row ── */
+.my-orders-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.my-orders-heading {
+  font-family: "Fraunces", serif;
+  font-size: 28px;
+  font-weight: 600;
+  color: var(--forest);
+  margin: 0;
+}
+
+.my-orders-refresh {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: none;
+  border: 1.5px solid var(--line);
+  border-radius: 8px;
+  padding: 7px 14px;
+  font-size: 13.5px;
+  font-weight: 500;
+  color: var(--charcoal);
+  cursor: pointer;
+  transition: border-color 0.2s, color 0.2s;
+}
+
+.my-orders-refresh:hover {
+  border-color: var(--forest);
+  color: var(--forest);
+}
+
+/* ── Mock badge ── */
+.mock-badge {
+  font-size: 12px;
+  color: var(--muted);
+  background: #fff8e6;
+  border: 1px dashed #f59e0b;
+  border-radius: 6px;
+  padding: 6px 12px;
+  margin-bottom: 20px;
+  display: inline-block;
+}
+
+/* ── Loading ── */
+.my-orders-loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 60px 0;
+  gap: 14px;
+  color: var(--muted);
+}
+
+.my-orders-spinner {
+  width: 36px;
+  height: 36px;
+  border: 3px solid var(--line);
+  border-top-color: var(--coral);
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ── Empty state ── */
+.my-orders-empty {
+  text-align: center;
+  padding: 60px 0;
+  color: var(--muted);
+}
+
+.my-orders-empty-icon {
+  font-size: 52px;
+  display: block;
+  margin-bottom: 12px;
+  color: var(--line);
+}
+
+/* ── Orders list ── */
+.orders-list {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+/* ── Single order card (the big "#123" panel) ── */
+.order-card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+
+/* Card header */
+.order-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 18px;
+  background: #edf4f0;
+  border-bottom: 1px solid var(--line);
+}
+
+.order-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.order-id {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--forest);
+}
+
+.order-date {
+  font-size: 12px;
+  color: var(--muted);
+}
+
+/* Status badge */
+.order-status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 12px;
+  border-radius: 999px;
+  font-size: 12.5px;
+  font-weight: 600;
+}
+
+.order-status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+/* ── Markets wrapper (holds one sub-panel per market — only 2 total) ── */
+.order-markets {
+  padding: 14px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+/* ── Single market sub-panel within an order ── */
+.order-market-panel {
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  overflow: hidden;
+  background: var(--bg);
+}
+
+.order-market-header {
+  display: flex;
+  align-items: center;
+  padding: 8px 14px;
+  background: var(--surface);
+  border-bottom: 1px solid var(--line);
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--forest);
+}
+
+/* Items within a market panel */
+.order-items {
+  padding: 4px 14px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Simplified line item: name+category | unit price | qty | total */
+.order-item-row {
+  display: grid;
+  grid-template-columns: 1fr auto auto auto;
+  align-items: center;
+  gap: 14px;
+  padding: 9px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.order-item-row:last-child {
+  border-bottom: none;
+}
+
+.order-item-info {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  min-width: 0;
+}
+
+.order-item-name {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--charcoal);
+}
+
+.order-item-category {
+  font-size: 11.5px;
+  color: var(--muted);
+}
+
+.order-item-unit-price {
+  font-size: 13px;
+  color: var(--muted);
+  white-space: nowrap;
+}
+
+.order-item-qty {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--charcoal);
+  white-space: nowrap;
+}
+
+.order-item-total {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--forest);
+  white-space: nowrap;
+}
+
+.order-market-subtotal {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 14px;
+  border-top: 1px solid var(--line);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--charcoal);
+}
+
+/* Card footer */
+.order-card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding: 12px 18px;
+  border-top: 1px solid var(--line);
+  background: var(--bg);
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.order-address {
+  font-size: 13px;
+  color: var(--muted);
+  flex: 1;
+}
+
+.order-total {
+  font-size: 15px;
+  color: var(--charcoal);
+  white-space: nowrap;
+}
+
+.order-total strong {
+  color: var(--forest);
+}
+
+/* ── Responsive ── */
+@media (max-width: 600px) {
+  .order-card-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .order-card-footer {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .order-item-row {
+    grid-template-columns: 1fr auto;
+    grid-template-rows: auto auto;
+  }
+
+  .order-item-unit-price {
+    grid-row: 2;
+  }
+}

@@ -1,0 +1,327 @@
+/* ── Design tokens ── */
+:root {
+  --bg: #faf7f2;
+  --surface: #ffffff;
+  --forest: #1b3a2f;
+  --coral: #ff6b47;
+  --coral-dark: #e85a38;
+  --charcoal: #2a2a2a;
+  --muted: #747474;
+  --line: #e7e1d6;
+  --radius: 14px;
+  --shadow: 0 4px 16px rgba(27, 58, 47, 0.08);
+}
+
+/* ── Page ── */
+.place-order-page {
+  font-family: "Inter", sans-serif;
+  max-width: 1180px;
+  margin: 0 auto;
+}
+
+.place-order-heading {
+  font-family: "Fraunces", serif;
+  font-size: 28px;
+  font-weight: 600;
+  color: var(--forest);
+  margin-bottom: 28px;
+}
+
+/* ── Two-column layout ── */
+.place-order-layout {
+  display: grid;
+  grid-template-columns: 1fr 340px;
+  gap: 28px;
+  align-items: start;
+}
+
+/* ════════════════════════════
+   LEFT — info panel
+════════════════════════════ */
+.info-panel {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+
+.info-panel-header {
+  background: #edf4f0;
+  padding: 12px 20px;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--forest);
+  border-bottom: 1px solid var(--line);
+}
+
+.info-form {
+  padding: 4px 0;
+}
+
+/* ── Generic form row (label left, input right) ── */
+.form-row {
+  display: grid;
+  grid-template-columns: 130px 1fr;
+  align-items: start;
+  gap: 12px;
+  padding: 14px 20px;
+  border-bottom: 1px solid var(--line);
+}
+
+.form-row:last-child {
+  border-bottom: none;
+}
+
+.form-row > label {
+  font-size: 13.5px;
+  font-weight: 600;
+  color: var(--charcoal);
+  padding-top: 9px;
+}
+
+/* ── Split row (two side-by-side fields, no left label) ── */
+.form-row--split {
+  grid-template-columns: 1fr 1fr;
+}
+
+.form-row--split > label {
+  display: none; /* labels live inside each .form-field */
+}
+
+/* ── Triple row (state / city / zip) ── */
+.form-row--triple {
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.form-row--triple > label {
+  display: none;
+}
+
+/* Individual field inside split/triple rows */
+.form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.form-field label {
+  font-size: 12.5px;
+  font-weight: 600;
+  color: var(--charcoal);
+}
+
+/* Shared input / select / textarea styles */
+.form-row input,
+.form-row select,
+.form-row textarea,
+.form-field input,
+.form-field select,
+.form-field textarea {
+  width: 100%;
+  border: 1.5px solid var(--line);
+  border-radius: 8px;
+  padding: 9px 12px;
+  font-size: 14px;
+  font-family: "Inter", sans-serif;
+  color: var(--charcoal);
+  background: var(--bg);
+  resize: vertical;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  appearance: auto;
+}
+
+.form-row input:focus,
+.form-row select:focus,
+.form-row textarea:focus,
+.form-field input:focus,
+.form-field select:focus,
+.form-field textarea:focus {
+  border-color: var(--forest);
+  box-shadow: 0 0 0 3px rgba(27, 58, 47, 0.08);
+  background: var(--surface);
+}
+
+/* ── Delivery times row ── */
+.form-row--delivery > label {
+  padding-top: 6px;
+}
+
+.delivery-times {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.delivery-time-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #edf4f0;
+  border-radius: 8px;
+  padding: 8px 12px;
+}
+
+.delivery-market {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--forest);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.delivery-eta {
+  font-size: 13px;
+  color: var(--muted);
+}
+
+/* ════════════════════════════
+   RIGHT — order summary
+════════════════════════════ */
+.order-summary {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 22px 20px;
+  position: sticky;
+  top: 24px;
+}
+
+.summary-title {
+  font-family: "Fraunces", serif;
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--forest);
+  margin-bottom: 18px;
+}
+
+/* Per-market block */
+.summary-market-block {
+  margin-bottom: 14px;
+}
+
+.summary-market-name {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--forest);
+  background: #edf4f0;
+  padding: 5px 10px;
+  border-radius: 6px;
+  margin-bottom: 8px;
+}
+
+.summary-item-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 13px;
+  color: var(--charcoal);
+  padding: 3px 0;
+}
+
+.summary-item-name {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.summary-item-qty {
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.summary-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+  color: var(--charcoal);
+  margin-bottom: 10px;
+}
+
+.summary-row--sub {
+  font-size: 12.5px;
+  color: var(--muted);
+  padding: 2px 0;
+  margin-bottom: 4px;
+}
+
+.summary-divider {
+  border: none;
+  border-top: 1.5px solid var(--line);
+  margin: 14px 0;
+}
+
+.summary-total {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--forest);
+  margin-bottom: 18px;
+}
+
+/* Continue button */
+.btn-continue-order {
+  width: 100%;
+  padding: 13px;
+  background: var(--coral);
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.1s;
+}
+
+.btn-continue-order:hover:not(:disabled) {
+  background: var(--coral-dark);
+  transform: translateY(-1px);
+}
+
+.btn-continue-order:disabled {
+  background: var(--line);
+  color: var(--muted);
+  cursor: not-allowed;
+}
+
+/* Mock payment badge */
+.mock-badge {
+  margin-top: 10px;
+  text-align: center;
+  font-size: 12px;
+  color: var(--muted);
+  background: #fff8e6;
+  border: 1px dashed #f59e0b;
+  border-radius: 6px;
+  padding: 6px 10px;
+}
+
+/* ── Responsive ── */
+@media (max-width: 960px) {
+  .place-order-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .order-summary {
+    position: static;
+  }
+}
+
+@media (max-width: 600px) {
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+
+  .form-row > label {
+    padding-top: 0;
+  }
+
+  .form-row--split,
+  .form-row--triple {
+    grid-template-columns: 1fr;
+  }
+}
